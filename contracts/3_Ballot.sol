@@ -44,6 +44,26 @@ contract Campaign {
         requests.push(newRequest);
     }
 
+    // wrong approve reques approach
+
+    function approveRequest(Request request) public {
+        bool isApprover = false;
+        // making sure person calling this function has donated
+        for(uint i=0;i < approvers.length; i++) {
+            if(approvers[i] == msg.sender) {
+                isApprover = true;
+            }
+        }
+        require(isApprover);
+        
+        // making sure porson calling tthsi function haset voted yet
+        for(uint =0; i<request.approvers.length;i++) {
+            require(request.approvers[i] != msg.sender);
+        }
+
+        // these for loops are very costly as the number of contributors increases.
+    }
+
 
 
 
