@@ -23,7 +23,7 @@ contract Campaign {
         _;
     }
 
-    function Campaign(uint memory minimum) public {
+    function Campaign(uint minimum) public {
         manager = msg.sender;
         minimumContribution = minimum;
     }
