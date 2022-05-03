@@ -6,6 +6,20 @@
 	"output": {
 		"abi": [
 			{
+				"constant": false,
+				"inputs": [
+					{
+						"name": "index",
+						"type": "uint256"
+					}
+				],
+				"name": "finalizeRequest",
+				"outputs": [],
+				"payable": false,
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
 				"constant": true,
 				"inputs": [
 					{
@@ -66,6 +80,20 @@
 					},
 					{
 						"name": "approvalCount",
+						"type": "uint256"
+					}
+				],
+				"payable": false,
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"constant": true,
+				"inputs": [],
+				"name": "approversCount",
+				"outputs": [
+					{
+						"name": "",
 						"type": "uint256"
 					}
 				],
@@ -165,9 +193,9 @@
 	},
 	"sources": {
 		"contracts/3_Ballot.sol": {
-			"keccak256": "0x2eada096d203da5d667f65147449f48716cfb05fcda92cfc00fcf3c8d7f3138e",
+			"keccak256": "0x8eb4512de35bdf7d04f7f90461c64809ec0ca017e2e9e8e5f47d96e5c93e5d50",
 			"urls": [
-				"bzzr://542a782118a2f1cdeac192d9187ebc874dbcfd40bba5edecd519d5e541e40271"
+				"bzzr://efe85ff4821dfa54c9a7db54fba84134deee040810a0b0cc2cfcad61a604b39a"
 			]
 		}
 	},

@@ -19,6 +19,7 @@ contract Campaign {
     uint public minimumContribution;
     // address[] public approvers;
     mapping(address => bool) public approvers;
+    uint public approversCount;
 
 
     modifier restricted() {
@@ -35,6 +36,7 @@ contract Campaign {
         require(msg.value >= minimumContribution);
         // approvers.push(msg.sender);
         approvers[msg.sender] = true; // add new key to the approvers mapping in mapping only value is stored and not the key
+        approversCount++;
     }
 
     function createRequest(string description, uint value, address recipient) public restricted {
@@ -81,6 +83,15 @@ contract Campaign {
         
         request.approvals[msg.sender] = true;
         request.approvalCount++;
+    }
+
+    function finalizeRequest(uint index) public restricted {
+        Request storage request = requests[index];
+        require(request.approvalCount > (approversCount / 2));
+        require(!request.complete);
+
+        request.recipient.transfer(request.value);
+        request.complete = true;
     }
 
 
