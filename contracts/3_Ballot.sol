@@ -15,7 +15,8 @@ contract Campaign {
     Request[] public requests;
     address public manager;
     uint public minimumContribution;
-    address[] public approvers;
+    // address[] public approvers;
+    mapping(address => bool) public approvers;
 
 
     modifier restricted() {
@@ -30,7 +31,8 @@ contract Campaign {
 
     function contribute() public payable {
         require(msg.value >= minimumContribution);
-        approvers.push(msg.sender);
+        // approvers.push(msg.sender);
+        approvers[msg.sender] = true; // add new key to the approvers mapping in mapping only value is stored and not the key
     }
 
     function createRequest(string description, uint value, address recipient) public restricted {
@@ -46,23 +48,29 @@ contract Campaign {
 
     // wrong approve reques approach
 
-    function approveRequest(Request request) public {
-        bool isApprover = false;
-        // making sure person calling this function has donated
-        for(uint i=0;i < approvers.length; i++) {
-            if(approvers[i] == msg.sender) {
-                isApprover = true;
-            }
-        }
-        require(isApprover);
+    // function approveRequest(Request request) public {
+    //     bool isApprover = false;
+    //     // making sure person calling this function has donated
+    //     for(uint i=0;i < approvers.length; i++) {
+    //         if(approvers[i] == msg.sender) {
+    //             isApprover = true;
+    //         }
+    //     }
+    //     require(isApprover);
         
-        // making sure porson calling tthsi function haset voted yet
-        for(uint =0; i<request.approvers.length;i++) {
-            require(request.approvers[i] != msg.sender);
-        }
+    //     // making sure porson calling tthsi function haset voted yet
+    //     for(uint i=0; i<request.approvers.length;i++) {
+    //         require(request.approvers[i] != msg.sender);
+    //     }
 
-        // these for loops are very costly as the number of contributors increases.
-    }
+    //     // these for loops are very costly as the number of contributors increases.
+    // }
+
+    // mappings are non iterable only good for retrieveing single value in o(1).
+    // mappings works like has table but dosent give eerror or null when the key is not present. we get default value.
+    // default value depend on the other values are string or numbers ('', 0)
+
+
 
 
 

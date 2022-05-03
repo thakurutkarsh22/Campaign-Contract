@@ -7,6 +7,25 @@
 		"abi": [
 			{
 				"constant": true,
+				"inputs": [
+					{
+						"name": "",
+						"type": "address"
+					}
+				],
+				"name": "approvers",
+				"outputs": [
+					{
+						"name": "",
+						"type": "bool"
+					}
+				],
+				"payable": false,
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"constant": true,
 				"inputs": [],
 				"name": "manager",
 				"outputs": [
@@ -87,25 +106,6 @@
 				"type": "function"
 			},
 			{
-				"constant": true,
-				"inputs": [
-					{
-						"name": "",
-						"type": "uint256"
-					}
-				],
-				"name": "approvers",
-				"outputs": [
-					{
-						"name": "",
-						"type": "address"
-					}
-				],
-				"payable": false,
-				"stateMutability": "view",
-				"type": "function"
-			},
-			{
 				"constant": false,
 				"inputs": [],
 				"name": "contribute",
@@ -147,9 +147,9 @@
 	},
 	"sources": {
 		"contracts/3_Ballot.sol": {
-			"keccak256": "0x72c8e66b75a264cabb113cf0f1551bb7a3b214a809e0db3dd0cb4a41c3dd3b48",
+			"keccak256": "0xded8265246b3aaf8bf2cf5be72b147049b00bdc3aecac46945ccc5ebd65c9184",
 			"urls": [
-				"bzzr://55bc361c57f466736be70521d5c9c0caf8025b801be4e2085838ffc1fe7d5c6e"
+				"bzzr://5f00ae5f1ac43671cfc0c39c578454a80be97a286430fe7d3fe883e7acad4e94"
 			]
 		}
 	},
